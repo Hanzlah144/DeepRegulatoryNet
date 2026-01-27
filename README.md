@@ -15,11 +15,11 @@ A machine learning-based pipeline for reconstructing circRNA–miRNA–mRNA regu
 - [Features](#features)
 - [Installation](#installation)
 - [Parameters](#parameters)
-- [Input File Structure](#input-file-structure)
+- [Input File Structure](#input-files-structure)
 - [Usage](#usage)
-- [Running with Test Data](#running-with-test-data)
+- [Test DeepRegulatoryNet with Example Data](#test-deepregulatorynet-with-example-data)
 - [License](#license)
-- [Contact](#contact)
+- [Authors and Contacts](#authors-and-contacts)
 
 ## Introduction
 
@@ -43,7 +43,7 @@ DeepRegulatoryNet is a comprehensive bioinformatics pipeline designed to investi
 
 ### Dependencies
 
-- Support Python 3.8+
+- Support Python 3.9+
 - [pandas](https://pandas.pydata.org/)
 - [NumPy](https://numpy.org/)
 - [CatBoost](https://catboost.ai/)
@@ -107,13 +107,11 @@ Ensure all required model files are present in the `Model_Files/` directory:
 If you encounter issues with model files in the `trained models/` directory (such as missing or corrupted files), follow these steps to retrieve them using Git LFS (Large File Storage):
 
 ```bash
-# Navigate to the trained models folder
+
 $ cd trained\ models
 
-# Install Git LFS
 $ git lfs install
 
-# Pull the model files
 $ git lfs pull
 ```
 
@@ -176,9 +174,9 @@ Runs the DeepRegulatoryNet pipeline on circRNA, miRNA, and DEG files to analyze 
 python DeepRegulatoryNet.py --circ <circRNA_file> --mirna <miRNA_file> --deg <DEG_file> [--debug]
 ```
 
-## Running with Test Data
+## Test DeepRegulatoryNet with Example Data
 
-Executes the ```DeepRegulatoryNet``` using test data in the `example_Data/` directory. use the following command:
+Executes the ```DeepRegulatoryNet``` using test data in the `examples/` directory. use the following command:
 
 
 ```bash
@@ -198,11 +196,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 In process.
 
 
-## Contact
+## Authors and Contacts
 
-For questions, issues, or contributions, please contact:
+**Muhammad Hanzlah Shah Khalid**  
+*Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
+Email: [nk6692381@gmail.com](mailto:nk6692381@gmail.com)
 
-- **Maintainer**: [Your Name]
-- **Email**: [your.email@example.com]
+**Rana Sheraz Ahmad**  
+*Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
+Email: [ranasheraz.202101902@gcuf.edu.pk](mailto:ranasheraz.202101902@gcuf.edu.pk)
 
----
+**Fatima Noor**  
+*Institute of Molecular Biology and Biotechnology (IMBB), The University of Lahore, Pakistan*  
+Email: [fatimanoor1122@yahoo.com](mailto:fatimanoor1122@yahoo.com)
+
+**Faheem Ahmed Khan**  
+*Stem Cell and Cancer Research Indonesia; Department of Transfusion Medicine and Clinical Microbiology, Faculty of Allied Health Sciences, Chulalongkorn University, Bangkok, 10330, Thailand*  
+Email: [faheemgenetics@yahoo.com](mailto:faheemgenetics@yahoo.com)
+
+**Muhammad Tahir ul Qamar**  
+*Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
+Email: [m.tahirulqamar@hotmail.com](mailto:m.tahirulqamar@hotmail.com)
