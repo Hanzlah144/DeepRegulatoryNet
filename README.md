@@ -13,7 +13,7 @@ A machine learning-based pipeline for reconstructing circRNA–miRNA–mRNA regu
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Installation](#installation)
+- [DeepRegulatoryNet Installation](#installation)
 - [Parameters](#parameters)
 - [Input File Structure](#input-files-structure)
 - [Usage](#usage)
@@ -60,7 +60,7 @@ DeepRegulatoryNet is a comprehensive bioinformatics pipeline designed to investi
 - [urllib3](https://urllib3.readthedocs.io/)
 
 
-### Using ```pip```
+### Installation Using ```pip```
 
 ```bash
 $ git clone https://github.com/Hanzlah144/DeepRegulatoryNet.git
@@ -75,7 +75,7 @@ Install all Python dependencies required to run ```DeepRegulatoryNet```
 $ pip install -r requirements.txt
 ```
 
-### Using ```conda```
+### Installation Using ```conda```
 Clone the Git Repository
 ```bash
 $ git clone https://github.com/Hanzlah144/DeepRegulatoryNet.git
