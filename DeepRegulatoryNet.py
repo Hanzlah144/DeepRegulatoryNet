@@ -28,7 +28,7 @@ import matplotlib
 matplotlib.use('Agg')  
 
 #Logging Helpers 
->>>>>>> 43b267659c75f6c3ba46d9b2f0f120b41f929382
+
 
 class AutoFlushFileHandler(logging.FileHandler):
     def emit(self, record):
