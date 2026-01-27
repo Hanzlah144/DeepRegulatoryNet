@@ -17,13 +17,13 @@ warnings.filterwarnings("ignore", category=UserWarning, module="IPython.core.dis
 # Add SRC directory to Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-<<<<<<< HEAD
+
 # Delayed imports: moved into `run_analysis()` to avoid side effects during CLI help (-h)
 
 
 
 # ---------- Logging Helpers ----------
-=======
+
 import matplotlib
 matplotlib.use('Agg')  
 
@@ -84,11 +84,10 @@ circRNA-miRNA-mRNA Pipeline
     logger.info(welcome_message)
 
 
-<<<<<<< HEAD
 # ---------- Input Validation ----------
-=======
+
 # Input Validation 
->>>>>>> 43b267659c75f6c3ba46d9b2f0f120b41f929382
+
 
 def validate_input_format(file_path, expected_prefix=None):
     with open(file_path, encoding='utf-8') as f:
@@ -99,12 +98,10 @@ def validate_input_format(file_path, expected_prefix=None):
     return lines
 
 
-<<<<<<< HEAD
-# ---------- Main Pipeline ----------
-=======
-# Main Pipeline 
->>>>>>> 43b267659c75f6c3ba46d9b2f0f120b41f929382
 
+# ---------- Main Pipeline ----------
+
+# Main Pipeline 
 def run_analysis(circ_file, mirna_file, deg_file, debug=False):
     logger = logging.getLogger()
     start_time = time.time()
