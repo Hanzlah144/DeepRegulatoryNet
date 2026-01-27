@@ -3,7 +3,7 @@
 A machine learning-based pipeline for reconstructing circRNA–miRNA–mRNA regulatory networks and performing integrative functional analyses from transcriptomic datasets.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
 [![Platform: Linux](https://img.shields.io/badge/Platform-Linux-FF6600?logo=linux&logoColor=white)](https://github.com/<USERNAME>/<REPO>)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)](https://github.com/<USERNAME>/<REPO>)
 [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-4CAF50?logo=apple&logoColor=white)](https://github.com/<USERNAME>/<REPO>)
