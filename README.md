@@ -190,7 +190,7 @@ This will process the test datasets and generate output files in the `output/` d
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This DeepRegulatoryNet is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Reference
 In process.
