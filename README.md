@@ -63,7 +63,7 @@ DeepRegulatoryNet is a comprehensive bioinformatics pipeline designed to investi
 ### Using ```pip```
 
 ```bash
-$ git clone https://github.com/Hanzlah144/DeepRagulatory-Net.git
+$ git clone https://github.com/Hanzlah144/DeepRegulatoryNet.git
 ```
 Navigate into the ```DeepRegulatoryNet``` repository
 ```
@@ -78,7 +78,7 @@ $ pip install -r requirements.txt
 ### Using ```conda```
 Clone the Git Repository
 ```bash
-$ git clone https://github.com/Hanzlah144/DeepRagulatory-Net.git
+$ git clone https://github.com/Hanzlah144/DeepRegulatoryNet.git
 ```
 Navigate into the repository
 ```
