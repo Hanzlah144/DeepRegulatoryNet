@@ -18,7 +18,7 @@ A machine learning-based pipeline for reconstructing circRNA–miRNA–mRNA regu
 - [Input File Structure](#input-files-structure)
 - [Usage](#usage)
 - [Test DeepRegulatoryNet with Example Data](#test-deepregulatorynet-with-example-data)
-- [License](#license)
+- [License and Issues](#license-and-issues)
 - [Authors and Contacts](#authors-and-contacts)
 
 ## Introduction
@@ -188,9 +188,11 @@ This will process the test datasets and generate output files in the `output/` d
 - `DEmiRNA.txt`: Sample miRNA IDs
 - `DEG.txt`: Sample differentially expressed genes
 
-## License
+## License and Issues
 
 This DeepRegulatoryNet is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Submit issues or contributions via [GitHub Issues](https://github.com/Hanzlah144/DeepRegulatoryNet/issues).
 
 ## Reference
 In process.
