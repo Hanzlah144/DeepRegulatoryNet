@@ -102,6 +102,23 @@ Ensure all required model files are present in the `Model_Files/` directory:
    - `label_encoder.pkl`
    - `robust_scaler.pkl`
 
+### Handling Trained Model Files
+
+If you encounter issues with model files in the `trained models/` directory (such as missing or corrupted files), follow these steps to retrieve them using Git LFS (Large File Storage):
+
+```bash
+# Navigate to the trained models folder
+$ cd trained\ models
+
+# Install Git LFS
+$ git lfs install
+
+# Pull the model files
+$ git lfs pull
+```
+
+**Note**: This project uses Git LFS to manage large model files efficiently. If you cloned the repository before Git LFS was initialized, ensure you have Git LFS installed on your system before pulling the model files. For more information, visit [Git LFS Documentation](https://git-lfs.github.com/).
+
 ## Parameters
 
 The pipeline accepts the following command-line arguments:
@@ -161,11 +178,11 @@ python DeepRegulatoryNet.py --circ <circRNA_file> --mirna <miRNA_file> --deg <DE
 
 ## Running with Test Data
 
-Executes the ```DeepRegulatoryNet``` using test data in the `Test_Data/` directory. use the following command:
+Executes the ```DeepRegulatoryNet``` using test data in the `example_Data/` directory. use the following command:
 
 
 ```bash
-python DeepRegulatoryNet.py --circ Test_Data/DEcircRNA.txt --mirna Test_Data/DEmiRNA.txt --deg Test_Data/DEG.txt
+python DeepRegulatoryNet.py --circ examples/DEcircRNA.txt --mirna examples/DEmiRNA.txt --deg examples/DEG.txt --debug
 ```
 
 This will process the test datasets and generate output files in the `output/` directory. The test data includes:
