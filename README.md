@@ -108,7 +108,7 @@ If you encounter issues with model files in the `trained models/` directory (suc
 
 ```bash
 
-$ cd trained\ models
+$ cd 'trained models'
 
 $ git lfs install
 
