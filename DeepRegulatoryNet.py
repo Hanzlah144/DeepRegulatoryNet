@@ -107,6 +107,13 @@ def run_analysis(circ_file, mirna_file, deg_file, debug=False):
     start_time = time.time()
 
     try:
+        # Import here to avoid side effects when only asking for CLI help
+        from second_pipeline import SecondPipeline
+        from enrichment_script import main as enrichment_main
+        from ppi_script import PPI_Analysis
+        from drug_gene_script import main as drug_gene_main
+        from data_grabber import CircInteractomeUnavailableError
+
         # Basic validation for required files
         if not circ_file or not os.path.exists(circ_file):
             raise FileNotFoundError(f"Missing file: {circ_file}")
@@ -114,12 +121,6 @@ def run_analysis(circ_file, mirna_file, deg_file, debug=False):
             raise FileNotFoundError(f"Missing file: {mirna_file}")
         if not deg_file or not os.path.exists(deg_file):
             raise FileNotFoundError(f"Missing file: {deg_file}")
-
-        # Import pipeline modules lazily to avoid side effects during `-h`/help
-        from second_pipeline import SecondPipeline
-        from enrichment_script import main as enrichment_main
-        from ppi_script import PPI_Analysis
-        from drug_gene_script import main as drug_gene_main
 
         # Validate and prepare circ list from input file
         circ_ids = validate_input_format(circ_file, "hsa_circ_")
@@ -235,9 +236,23 @@ def run_analysis(circ_file, mirna_file, deg_file, debug=False):
         )
 
     except Exception as e:
-        logger.error("[ERROR] Pipeline failed: %s", e)
-        if debug:
-            logger.error(traceback.format_exc())
+        # Handle CircInteractome downtime/timeouts with a clear, user-facing message
+        try:
+            from data_grabber import CircInteractomeUnavailableError
+        except ImportError:
+            CircInteractomeUnavailableError = None
+
+        if CircInteractomeUnavailableError and isinstance(e, CircInteractomeUnavailableError):
+            msg = (
+                "DeepRegulatoryNet pipeline is working correctly, but unfortunately, "
+                "the NIH CircInteractome server is currently under maintenance or "
+                "experiencing downtime. Please wait a while and retry."
+            )
+            logger.error(msg)
+        else:
+            logger.error("[ERROR] Pipeline failed: %s", e)
+            if debug:
+                logger.error(traceback.format_exc())
         sys.exit(1)
 
 
