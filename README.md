@@ -45,10 +45,6 @@ DeepRegulatoryNet is a comprehensive bioinformatics pipeline designed to investi
 
 - Python 3.9+
 - Internet access for external APIs used by the pipeline (NIH CircInteractome, miRDB, STRING-DB, ChEMBL)
-- The `trained models/` directory must contain the pre-trained model artifacts:
-  - `catboost_model.pkl`
-  - `label_encoder.pkl`
-  - `scaler.pkl`
 
 ### Dependencies
 
