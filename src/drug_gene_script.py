@@ -18,12 +18,11 @@ DEFAULT_INPUT_FILE = "output/hub_genes.csv"
 OUTPUT_DIR = "output"
 
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "chembl_drug_gene_interactions.csv")
-# New consolidated visualization path
 OUTPUT_PLOT_HEATMAP = os.path.join(OUTPUT_DIR, "top_drugs_potency_heatmap.png")
 
 IC50_THRESHOLD = 5000  
-TOP_N_GENES = 5  # Number of genes to show in heatmap
-TOP_N_DRUGS = 10 # Number of drugs per gene to show in heatmap
+TOP_N_GENES = 5  
+TOP_N_DRUGS = 10 
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -38,16 +37,32 @@ def load_genes(file_path):
         raise ValueError("CSV must contain 'Gene' column")
     return df["Gene"].dropna().unique().tolist()
 
-# ================= MAP GENE → TARGET =================
+# ================= MAP GENE → TARGET (UPDATED WITH SKIP REPORTING) =================
 def get_targets(genes):
     target_client = new_client.target
     gene_to_target = {}
+    requested_genes = set(genes)
+    found_genes = set()
+
     for gene in genes:
         res = target_client.search(gene)
         for r in res:
+            # Filter for Human targets to ensure relevance to the research
             if r.get("organism") == "Homo sapiens":
                 gene_to_target[gene] = r["target_chembl_id"]
+                found_genes.add(gene)
                 break
+    
+    # Identify and report skipped genes
+    skipped_genes = requested_genes - found_genes
+    if skipped_genes:
+        logger.warning(
+            "[SKIP REPORT] %d genes skipped (no human target data in ChEMBL): %s", 
+            len(skipped_genes), 
+            ", ".join(sorted(list(skipped_genes)))
+        )
+    
+    logger.info("[SUCCESS] Valid human targets identified for %d genes.", len(found_genes))
     return gene_to_target
 
 # ================= FETCH BIOACTIVITY =================
@@ -58,6 +73,7 @@ def fetch_activities(gene_to_target):
     for gene, target_id in gene_to_target.items():
         logger.info("Fetching activities for %s", gene)
         try:
+            # Limit to 300 records per gene for performance in quick mode
             acts = activity_client.filter(target_chembl_id=target_id)[:300]
         except Exception as e:
             logger.warning("Failed for %s: %s", gene, str(e))
@@ -82,16 +98,10 @@ def fetch_activities(gene_to_target):
 
     return pd.DataFrame(records)
 
-# ================= UPDATED VISUALIZATION =================
-
+# ================= VISUALIZATION =================
 def plot_labeled_potency_heatmap(df):
-    """
-    Consolidated Visualization: Ranks top drugs per gene and labels them with names 
-    and pIC50 values for actionable insights.
-    """
     logger.info("Generating Potency Heatmap with Drug Names...")
     
-    # Identify top genes by a combination of potency and data density
     target_metrics = df.groupby('Gene').agg(
         Avg_pIC50=('pIC50', 'mean'),
         Drug_Count=('Drug', 'count')
@@ -99,17 +109,15 @@ def plot_labeled_potency_heatmap(df):
     target_metrics['Score'] = target_metrics['Avg_pIC50'] * target_metrics['Drug_Count']
     top_genes = target_metrics.sort_values(by='Score', ascending=False).head(TOP_N_GENES)['Gene'].tolist()
 
-    # Filter and rank top 10 drugs per gene
     subset = df[df['Gene'].isin(top_genes)].copy()
     subset = subset.sort_values(['Gene', 'pIC50'], ascending=[True, False])
     subset['Drug_Rank'] = subset.groupby('Gene').cumcount() + 1
     subset = subset[subset['Drug_Rank'] <= TOP_N_DRUGS]
 
-    # Pivot data for the heatmap
     pivoted_values = subset.pivot(index='Gene', columns='Drug_Rank', values='pIC50')
     pivoted_names = subset.pivot(index='Gene', columns='Drug_Rank', values='Drug')
 
-    # Create annotation strings (Name + pIC50)
+    # Combined label for heatmap cells
     annot_matrix = pivoted_names + "\n(" + pivoted_values.round(2).astype(str) + ")"
 
     plt.figure(figsize=(18, 8))
@@ -142,18 +150,14 @@ def main(hub_genes_path=None, max_genes=None):
     if max_genes:
         genes = genes[:max_genes]
 
+    # Now includes the skip report logic
     gene_to_target = get_targets(genes)
     df = fetch_activities(gene_to_target)
 
     if not df.empty:
         df.to_csv(OUTPUT_CSV, index=False)
-        
-        # Apply the new consolidated visualization
         plot_labeled_potency_heatmap(df)
-        
         logger.info("Pipeline completed successfully. Insights generated.")
     else:
         logger.warning("No interactions found with current filters.")
 
-if __name__ == "__main__":
-    main()
