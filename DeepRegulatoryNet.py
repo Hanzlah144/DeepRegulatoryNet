@@ -8,6 +8,10 @@ import urllib3
 import time
 import traceback
 from datetime import datetime
+from sklearn.exceptions import InconsistentVersionWarning
+
+# Suppress only the InconsistentVersionWarning
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 # Suppress urllib3 warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
