@@ -209,7 +209,7 @@ Email: [nk6692381@gmail.com](mailto:nk6692381@gmail.com)
 
 **Tooba Shahid**
 *Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
-Email: [nk6692381@gmail.com](mailto:nk6692381@gmail.com)
+Email: [toobashahid640@gmail.com](mailto:toobashahid640@gmail.com)
 
 **Faheem Ahmed Khan**  
 *Stem Cell and Cancer Research Indonesia; Department of Transfusion Medicine and Clinical Microbiology, Faculty of Allied Health Sciences, Chulalongkorn University, Bangkok, 10330, Thailand*  
