@@ -207,8 +207,8 @@ In process.
 *Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
 Email: [nk6692381@gmail.com](mailto:nk6692381@gmail.com)
 
-**Tooba Shahid**
-*Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
+**Tooba Shahid**<br>
+*Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*<br>
 Email: [toobashahid640@gmail.com](mailto:toobashahid640@gmail.com)
 
 **Faheem Ahmed Khan**  
