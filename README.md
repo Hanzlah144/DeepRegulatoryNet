@@ -203,18 +203,18 @@ In process.
 
 ## Authors and Contacts
 
-**Muhammad Hanzlah Shah Khalid**  
+**Mr. Muhammad Hanzlah Shah Khalid**  
 *Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
 Email: [nk6692381@gmail.com](mailto:nk6692381@gmail.com)
 
-**Tooba Shahid**<br>
+**Ms. Tooba Shahid**<br>
 *Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*<br>
 Email: [toobashahid640@gmail.com](mailto:toobashahid640@gmail.com)
 
-**Faheem Ahmed Khan**  
+**Dr. Faheem Ahmed Khan**  
 *Stem Cell and Cancer Research Indonesia; Department of Transfusion Medicine and Clinical Microbiology, Faculty of Allied Health Sciences, Chulalongkorn University, Bangkok, 10330, Thailand*  
 Email: [faheemgenetics@yahoo.com](mailto:faheemgenetics@yahoo.com)
 
-**Muhammad Tahir ul Qamar**  
+**Dr. Muhammad Tahir ul Qamar**  
 *Integrative Omics and Molecular Modeling Laboratory, Department of Bioinformatics and Biotechnology, Government College University Faisalabad (GCUF), Faisalabad, 38000, Pakistan*  
 Email: [m.tahirulqamar@hotmail.com](mailto:m.tahirulqamar@hotmail.com)
